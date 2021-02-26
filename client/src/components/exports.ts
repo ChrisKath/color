@@ -1,0 +1,6 @@
+export { default as FooterComponent } from './footer'
+export { default as HeaderComponent } from './header'
+export { default as InputComponent } from './input'
+export { default as LogoComponent } from './logo'
+export { default as LoaderComponent } from './loader'
+export { default as ParallaxComponent } from './parallax'

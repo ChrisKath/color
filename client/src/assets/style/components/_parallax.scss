@@ -1,0 +1,30 @@
+.ui--parallax {
+  &-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 110vh;
+  }
+
+  &-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    background-image: linear-gradient(to top, $base-color 0, rgba($base-color, 0.6) 60%);
+    // background-image: linear-gradient(to top,
+    //   $base-color 0,
+    //   transparent 60%,
+    //   rgba(black, 0.96) 100%,
+    // );
+  }
+}

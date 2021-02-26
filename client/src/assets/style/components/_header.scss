@@ -1,0 +1,86 @@
+.ui--header {
+  position: sticky;
+  z-index: 40;
+  top: 0;
+  height: 80px;
+  display: grid;
+  align-items: center;
+  padding: 0 $padding-edge;
+  transition:
+    height $animation-time ease,
+    background-color $transition-time ease;
+
+  &.on-sticky {
+    height: 60px;
+    background-color: rgba($base-color, 0.96);
+
+    // Nested At-Rules and Bubbling.
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+      backdrop-filter: blur(15px);
+      background-color: rgba($base-color, 0.8);
+    }
+  }
+
+  &-container {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: flex-end;
+
+    &.unlock {
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &-logo {
+    position: relative;
+
+    &-img {
+      display: block;
+      width: 45px;
+      height: 45px;
+      border-radius: 6px;
+      background-color: tint($base-color, 5%);
+      border: solid 2px tint($base-color, 5%);
+      object-position: center;
+      object-fit: cover;
+    }
+  }
+
+  &-menu {
+    display: grid;
+    grid-gap: 0 10px;
+    grid-auto-flow: column;
+    justify-content: flex-start;
+    line-height: 30px;
+
+    &-link {
+      padding: 0 10px;
+      text-transform: capitalize;
+      transition: opacity 0.4s ease;
+
+      &.active {
+        font-weight: $font-weight-bold;
+      }
+
+      &:not(.active) {
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    &-login {
+      justify-self: flex-end;
+      padding: 0 20px;
+
+      line-height: 35px;
+      text-transform: capitalize;
+      font-weight: $font-weight-bold;
+
+      border-radius: 2px;
+      color: $base-color;
+      background-color: $primary-color;
+    }
+  }
+}

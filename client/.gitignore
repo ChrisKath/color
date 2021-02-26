@@ -1,0 +1,12 @@
+build
+node_modules
+
+# local env files
+.env
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+pnpm-debug.log*
+package-lock.json*

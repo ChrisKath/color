@@ -1,0 +1,39 @@
+// SET global classes.
+.ui--wrapper {}
+
+.ui--router {
+  &-view {
+    position: relative;
+    padding-left: $padding-edge;
+    padding-right: $padding-edge;
+
+    &::before,
+    &::after {
+      content: '';
+      clear: both;
+    }
+  }
+}
+
+.ui--logo {
+  padding: 2px;
+  width: 55px;
+  height: 55px;
+  border-radius: 2px;
+  background-color: $dark-color;
+
+  // Nested At-Rules and Bubbling.
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    backdrop-filter: blur(10px);
+    background-color: rgba($base-color, 0.72);
+  }
+
+  &-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// .ui--context {}

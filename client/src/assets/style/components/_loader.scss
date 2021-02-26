@@ -1,0 +1,59 @@
+.ui--loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 120;
+  display: grid;
+  background-color: $base-color;
+
+  .container {
+    align-self: center;
+    justify-self: center;
+  }
+
+  &-box {
+    position: relative;
+    display: flex;
+    width: 256px;
+    height: 4px;
+    transform: translateZ(0);
+
+    $boxes: 10;
+    $durationAll: 800ms;
+    $duration: - $durationAll / $boxes;
+
+    li {
+      flex: 1;
+      animation: go $durationAll infinite alternate ease;
+      background: $primary-color;
+      box-shadow: 0 0 25px $primary-color;
+
+      @for $i from 1 through $boxes {
+        &:nth-child(#{$i}) {
+          animation-delay: $duration * ($boxes - $i);
+        }
+      }
+    }
+  }
+
+  &-text {
+    color: shade($gray-color, 15%);
+    letter-spacing: 0.6px;
+    line-height: 46px;
+    font-size: $font-size-small;
+    font-weight: $font-weight-bold;
+    text-transform: capitalize;
+    text-align: center;
+    display: block;
+  }
+
+  @keyframes go {
+    100% {
+      flex: 10;
+      background: transparent;
+      box-shadow: 0 0 0 transparent;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+version: "3.9"
+services:
+  # database
+  db:
+    container_name: ${DB_HOST}
+    image: mysql
+    build: ./docs/db
+    volumes:
+      - ./docs/db:/var/lib/mysql
+    ports:
+      - "3636:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      TZ: ${TZ}
+
+  # web server
+  server:
+    container_name: color.nestjs
+    image: node:15.5-alpine
+    build: ./server
+    working_dir: /home/node
+    restart: always
+    volumes:
+      - ./server:/home/node
+    depends_on:
+      - db
+    expose:
+      - "${APP_SERVER_PORT}"
+    ports:
+      - "${APP_SERVER_PORT}:${APP_SERVER_PORT}"
+    command: sh -c "npm run start:dev"
+    env_file: .env
+
+  # phpmyadmin
+  phpmyadmin:
+    container_name: color.phpmyadmin
+    image: phpmyadmin
+    depends_on:
+      - db
+    ports:
+      - "${DB_PMA_PORT}:80"

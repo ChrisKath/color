@@ -1,0 +1,128 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+  }
+}
+
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: $font-family-base;
+  font-size: $font-size-medium;
+  color: $text-color;
+  background-color: $base-color;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+code {
+  font-family: $font-family-code;
+}
+
+hr {
+  border: unset;
+  margin: 10px 0;
+  border-bottom: solid 1px $border-color;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img,
+label {
+  width: inherit;
+  user-select: none;
+}
+
+img {
+  &[aria-object-fit="cover"] {
+    object-fit: cover;
+  }
+
+  &[aria-object-position="center"] {
+    object-position: center;
+  }
+}
+
+svg {
+  &.icon {
+    width: 1em;
+    height: 1em;
+  }
+}
+
+input {
+  padding: 0;
+  outline: 0;
+  width: 100%;
+  border: none;
+  box-shadow: 0 0 0 transparent;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+  outline: unset;
+}
+
+button {
+  cursor: pointer;
+  outline: 0;
+  padding: 0;
+  border: solid 0 transparent;
+  box-shadow: 0 0 0 transparent;
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: 0;
+  cursor: pointer;
+  display: inline-block;
+  user-select: none;
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
