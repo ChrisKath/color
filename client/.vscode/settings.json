@@ -1,6 +1,7 @@
 {
-  "git.ignoreLimitWarning": true,
-  "editor.tabSize": 2,
-  "editor.fontSize": 24,
-  "editor.lineHeight": 48
+  "editor.formatOnSave": true,
+  "editor.snippetSuggestions": "top",
+  "files.exclude": {
+    "**/.next": true
+  }
 }

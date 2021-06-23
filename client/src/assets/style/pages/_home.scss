@@ -1,0 +1,75 @@
+.ui--home {
+  &-header {
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+  }
+
+  // &-body {}
+
+  &-hero {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 150px 0;
+    text-align: center;
+    color: white;
+
+    .h1, .h2 {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .h1 {
+      line-height: 1.1;
+      font-size: 4rem;
+      font-weight: $font-weight-bold;
+    }
+
+    .h2 {
+      margin: 20px auto;
+      font-size: 1.88rem;
+    }
+
+    .h4 {
+      margin: 40px 0 0;
+      font-size: 1.2rem;
+    }
+
+    .start {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      max-width: 640px;
+      margin: 20px auto 0;
+
+      input {
+        height: 60px;
+        padding: 0 20px;
+        font-size: $font-size-medium + 2;
+        border-radius: 2px 0 0 2px;
+
+        &::placeholder {
+          color: $color-gray-4;
+          font-size: $font-size-medium;
+        }
+      }
+
+      button {
+        text-transform: uppercase;
+        font-size: $font-size-large;
+        font-weight: $font-weight-bold;
+        border-radius: 0 2px 2px 0;
+      }
+    }
+  }
+
+  .btn {
+    &-login {
+      padding: 6px 22px;
+      font-size: $font-size-medium + 2;
+      font-weight: $font-weight-bold;
+    }
+  }
+}

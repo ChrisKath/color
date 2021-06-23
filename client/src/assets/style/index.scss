@@ -12,13 +12,21 @@
 @import
   // Core Styles
   "core/variable",
+  "core/mixin",
   "core/reset",
   "core/global",
 
   // Components Styles
   "components/header",
+  "components/header",
   "components/button",
   "components/loader",
   "components/parallax",
   "components/input",
-  "components/footer";
+  "components/footer",
+
+  // Pages Styles
+  "pages/home",
+  "pages/login",
+  "pages/register",
+  "pages/browse";

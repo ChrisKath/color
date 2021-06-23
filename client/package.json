@@ -2,27 +2,34 @@
   "name": "project_color",
   "version": "0.1.0",
   "private": true,
-  "license": "GNU",
+  "license": "UNLICENSED",
   "scripts": {
-    "build": "react-scripts build",
-    "serve": "react-scripts start"
+    "build": "next build",
+    "serve": "next start",
+    "serve:dev": "next dev --port 8084"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "classnames": "^2.2.6",
+    "cookie": "^0.4.1",
+    "js-cookie": "^2.2.1",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.33",
+    "next": "^10.1.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-hook-form": "^7.0.5",
     "react-redux": "^7.2.2",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.3",
     "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
-    "redux-devtools-extension": "^2.13.8",
-    "tiny-cookie": "^2.3.2"
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/classnames": "^2.2.11",
+    "@types/cookie": "^0.4.0",
+    "@types/js-cookie": "^2.2.6",
     "@types/node": "^14.14.31",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
@@ -30,6 +37,7 @@
     "@types/react-router-dom": "^5.1.7",
     "@types/react-transition-group": "^4.4.1",
     "@types/redux": "^3.6.0",
+    "@zeit/next-sass": "^1.0.1",
     "node-sass": "^4.14.1",
     "typescript": "^4.2.2"
   },

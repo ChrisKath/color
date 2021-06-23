@@ -1,52 +1,21 @@
-import { useState } from 'react'
-import classNames from 'classnames'
+import { InputProps } from '@/types/input'
+import { Input } from './main'
+import { Textarea } from './textarea'
+import { Checkbox } from './checkbox'
 
-export interface PropsType {
-  id?: string;
-  type?: string;
-  name?: string;
-  label: string;
-  value: string;
-  onChange?: Function;
-  onBlur?: Function;
-}
-
-export default function InputComponent (props: PropsType) {
+export default function InputProvider(props: InputProps) {
   // __STATE <React.Hooks>
-  const [error, setError] = useState(false)
-  const type: string = (props.type || 'text')
-
-  // __FUNCTION
-  const onChange = (event: any): void => {
-    if (props.onChange) {
-      let { value } = event.target
-      props.onChange(value)
-    }
-  }
-
-  const onBlur = (event: any): void => {
-    let { value } = event.target
-
-    setError(!value)
-
-    if (props.onBlur) {
-      props.onBlur(value)
-    }
-  }
+  const vid: string = `ui--form-model-${props.name}`
 
   // __RENDER
-  return (
-    <div className="ui--input">
-      <div className={classNames('ui--input-field', { has: props.value })}>
-        <input className="input" type={type} value={props.value} onChange={onChange} onBlur={onBlur} />
-        <label className="label">{ props.label }</label>
-      </div>
+  switch (props.type) {
+    case 'checkbox':
+      return <Checkbox vid={vid} {...props} />
 
-      {
-        error
-          ? (<span className="ui--input-error">Please field is required.</span>)
-          : null
-      }
-    </div>
-  )
+    case 'textarea':
+      return <Textarea vid={vid} {...props} />
+
+    default:
+      return <Input vid={vid} {...props} />
+  }
 }

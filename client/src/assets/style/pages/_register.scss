@@ -1,0 +1,64 @@
+.ui--register {
+  min-height: 100vh;
+
+  &-header {
+    position: relative;
+    height: 99px;
+    padding: 30px 0 0;
+  }
+
+  &-body {
+    position: relative;
+    margin: 20px auto 88px;
+    padding: 60px;
+    width: 100%;
+    max-width: 440px;
+    border-radius: 2px;
+    background-color: rgba(black, 0.8);
+
+    // Nested At-Rules and Bubbling.
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+      backdrop-filter: blur(10px);
+      background-color: rgba(black, 0.8);
+    }
+  }
+
+  &-form {
+    display: grid;
+    grid-gap: 20px 0;
+    margin: 0 0 50px;
+
+    .title {
+      font-size: $font-size-larger * 1.5;
+      font-weight: $font-weight-bold;
+      text-transform: capitalize;
+      margin: 0 0 15px;
+    }
+
+    .desc {
+      color: $color-gray-6;
+    }
+  }
+
+  &-other {
+    color: $color-gray-6;
+
+    .link {
+      color: $color-gray-4;
+      font-weight: $font-weight-bold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .btn {
+    &-register {
+      margin: 20px 0 0;
+      height: 45px;
+      font-size: $font-size-large - 2;
+      font-weight: $font-weight-bolder;
+    }
+  }
+}

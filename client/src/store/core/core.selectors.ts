@@ -1,15 +1,19 @@
-import { ReduxStateType } from '../index'
+import { StoreTypes } from '@/store'
 
 export default {
-  getAppVersion (state: ReduxStateType) {
-    return state.$core.appVersion
+  getAppVersion({ core }: StoreTypes) {
+    return core.appVersion
   },
 
-  getLanguage (state: ReduxStateType) {
-    return state.$core.lang
+  getLanguage({ core }: StoreTypes) {
+    return core.lang
   },
 
-  getLoader (state: ReduxStateType) {
-    return state.$core.loader
+  getLoader({ core }: StoreTypes) {
+    return core.loader
+  },
+
+  getDialog({ core }: StoreTypes) {
+    return core.dialog
   }
 }

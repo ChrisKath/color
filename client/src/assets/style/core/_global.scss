@@ -1,39 +1,77 @@
-// SET global classes.
-.ui--wrapper {}
+// SET: global classes.
+.ui--app-wrapper {
+  position: relative;
+  display: grid;
+  grid-gap: 0;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
 
-.ui--router {
-  &-view {
+  .router-view {
     position: relative;
-    padding-left: $padding-edge;
-    padding-right: $padding-edge;
-
-    &::before,
-    &::after {
-      content: '';
-      clear: both;
-    }
   }
 }
 
-.ui--logo {
-  padding: 2px;
-  width: 55px;
-  height: 55px;
-  border-radius: 2px;
-  background-color: $dark-color;
+// SET: Global CSS Variables.
+:root {
+  --color-primary-lighter   : #{$color-primary-lighter};
+  --color-primary-light     : #{$color-primary-light};
+  --color-primary           : #{$color-primary};
+  --color-primary-dark      : #{$color-primary-dark};
+  --color-success-lighter   : #{$color-success-lighter};
+  --color-success-light     : #{$color-success-light};
+  --color-success           : #{$color-success};
+  --color-success-dark      : #{$color-success-dark};
+  --color-error-lighter     : #{$color-error-lighter};
+  --color-error-light       : #{$color-error-light};
+  --color-error             : #{$color-error};
+  --color-error-dark        : #{$color-error-dark};
+  --color-warning-lighter   : #{$color-warning-lighter};
+  --color-warning-light     : #{$color-warning-light};
+  --color-warning           : #{$color-warning};
+  --color-warning-dark      : #{$color-warning-dark};
+  --color-violet-lighter    : #{$color-violet-lighter};
+  --color-violet-light      : #{$color-violet-light};
+  --color-violet            : #{$color-violet};
+  --color-violet-dark       : #{$color-violet-dark};
+  --color-pink-lighter      : #{$color-pink-lighter};
+  --color-pink-light        : #{$color-pink-light};
+  --color-pink              : #{$color-pink};
+  --color-pink-dark         : #{$color-pink-dark};
+  --color-cyan-lighter      : #{$color-cyan-lighter};
+  --color-cyan-light        : #{$color-cyan-light};
+  --color-cyan              : #{$color-cyan};
+  --color-cyan-dark         : #{$color-cyan-dark};
+  
+  --color-gray-1            : #{$color-gray-1};
+  --color-gray-2            : #{$color-gray-2};
+  --color-gray-3            : #{$color-gray-3};
+  --color-gray-4            : #{$color-gray-4};
+  --color-gray-5            : #{$color-gray-5};
+  --color-gray-6            : #{$color-gray-6};
+  --color-gray-7            : #{$color-gray-7};
+  --color-gray-8            : #{$color-gray-8};
 
-  // Nested At-Rules and Bubbling.
-  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    backdrop-filter: blur(10px);
-    background-color: rgba($base-color, 0.72);
-  }
+  --color-link              : #{$color-primary};
+  --color-secondary-lighter : #{$color-gray-2};
+  --color-secondary-light   : #{$color-gray-3};
+  --color-secondary         : #{$color-gray-5};
+  --color-secondary-dark    : #{$color-gray-7};
 
-  &-img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  --color-dropdown-shadow   : 0 4px 4px 0 #{rgba(black, 0.024)};
+  --color-shadow-smallest   : 0 4px 8px #{rgba(black, 0.024)};
+  --color-shadow-small      : 0 6px 12px #{rgba(black, 0.024)};
+  --color-shadow-medium     : 0 8px 30px #{rgba(black, 0.024)};
+  --color-shadow-large      : 0 30px 60px #{rgba(black, 0.024)};
+  --color-shadow-hover      : 0 30px 60px #{rgba(black, 0.024)};
+  --color-shadow-sticky     : 0 12px 10px -10px #{rgba(black, 0.024)};
+
+  --font-size-larger        : #{$font-size-larger};
+  --font-size-large         : #{$font-size-large};
+  --font-size-medium        : #{$font-size-medium};
+  --font-size-small         : #{$font-size-small};
+  --font-size-smaller       : #{$font-size-smaller};
+  --font-weight-lighter     : #{$font-weight-lighter};
+  --font-weight-normal      : #{$font-weight-normal};
+  --font-weight-bold        : #{$font-weight-bold};
+  --font-weight-bolder      : #{$font-weight-bolder};
 }
-
-// .ui--context {}

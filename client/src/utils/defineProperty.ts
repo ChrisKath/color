@@ -1,66 +1,59 @@
-import { isNumber, upperCase } from './index'
+import { isBrowser } from '@/libs/configs'
+import { isString, upperCase } from '@/utils'
 
-/**
- * @param {string} prop
- * @param {string|number} value
- */
-Object.defineProperty(Array.prototype, 'findOne', {
-  value: function (prop: string, value: any): any {
-    return [].concat(this)
-      .find((a: any) => a[prop] === value)
-  }
-})
+(function(): void {
+  if (!isBrowser) return void 0
 
-/**
- * @param {string} prop
- * @param {string|number} value
- */
-Object.defineProperty(Array.prototype, 'findAll', {
-  value: function (prop: string, value: any): any {
-    return [].concat(this)
-      .filter((a: any) => a[prop] === value)
-  }
-})
+  Object.defineProperty(Array.prototype, 'findOne', {
+    value: function (prop: string, value: any) {
+      return [].concat(this)
+        .find((a) => a[prop] === value)
+    }
+  })
 
-/**
- * @param {string} prop
- * @param {string|number} value
- */
-Object.defineProperty(Array.prototype, 'remove', {
-  value: function (prop: string = '', value: any): any {
-    return [].concat(this)
-      .filter((a: any) => (!prop) ? (a !== value) : (a[prop] !== value))
-  }
-})
+  Object.defineProperty(Array.prototype, 'findAll', {
+    value: function (prop: string, value: any) {
+      return [].concat(this)
+        .filter((a) => a[prop] === value)
+    }
+  })
 
-/**
- * @param {string} prop
- */
-Object.defineProperty(Array.prototype, 'groupBy', {
-  value: function (prop: string): any {
-    return [].concat(this)
-      .reduce((g: any, i: any): any => {
-        g[i[prop]] = g[i[prop]] || []
-        g[i[prop]].push(i)
-        return g
-      }, {})
-  }
-})
+  Object.defineProperty(Array.prototype, 'remove', {
+    value: function (prop: string, value: any) {
+      return [].concat(this)
+        .filter((a) => a[prop] !== value)
+    }
+  })
 
-/**
- * @param {string} prop
- * @param {string} type
- */
-Object.defineProperty(Array.prototype, 'orderBy', {
-  value: function (prop: string, type: string = 'asc'): any {
-    return [].concat(this)
-      .sort((a: any, b: any): any => {
-        let propA: any = (isNumber(a[prop]) ? a[prop] : upperCase(a[prop]))
-        let propB: any = (isNumber(b[prop]) ? b[prop] : upperCase(b[prop]))
+  Object.defineProperty(Array.prototype, 'groupBy', {
+    value: function (prop: string) {
+      return [].concat(this)
+        .reduce((previousValue: any, currentValue: never) => {
+          previousValue[currentValue[prop]] = [
+            ...(previousValue[currentValue[prop]] || []),
+            currentValue
+          ]
+          
+          return previousValue
+        }, {})
+    }
+  })
 
-        return (type === 'desc')
-          ? (propB < propA ? -1 : propB > propA ? 1 : propB >= propA ? 0 : NaN)
-          : (propA < propB ? -1 : propA > propB ? 1 : propA >= propB ? 0 : NaN)
-      })
-  }
-})
+  Object.defineProperty(Array.prototype, 'orderBy', {
+    value: function (prop: string, type: string = 'asc') {
+      return [].concat(this)
+        .sort((a, b) => {
+          let propA: any = a[prop]
+          propA = isString(propA) ? upperCase(propA) : propA
+
+          let propB: any = b[prop]
+          propB = isString(propB) ? upperCase(propB) : propB
+
+          return (type === 'desc')
+            ? (propB < propA ? -1 : propB > propA ? 1 : propB >= propA ? 0 : NaN)
+            : (propA < propB ? -1 : propA > propB ? 1 : propA >= propB ? 0 : NaN)
+        })
+    }
+  })
+
+})()

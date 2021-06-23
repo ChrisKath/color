@@ -1,34 +1,63 @@
 .btn {
-  display: block;
-  width: 100%;
-  border-radius: 2px;
-  text-transform: capitalize;
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.5rem;
+  
+  cursor: pointer;
+  color: $color-primary;
+  background-color: transparent;
+
+  border-radius: 6px;
+  transition: all $transition-time ease;
 
   .icon {
-    vertical-align: middle;
-    margin-right: 10px;
-    padding: 2px;
-    width: 1em;
-    height: 1em;
+    margin-right: 0.5rem;
   }
 
-  // .text {}
+  .text {
+    text-transform: capitalize;
+  }
 
-  &-default {
-    color: $text-color;
-    background-color: transparent;
+  &-text {
+    padding: 0;
+    color: $color-gray-8;
 
     &:hover {
       text-decoration: underline;
     }
   }
 
-  &-primary {
-    color: $dark-color;
-    background-color: $primary-color;
+  &-default {
+    color: $color-gray-5;
+    background-color: white;
 
     &:hover {
-      background-color: tint($primary-color, 12%);
+      background-color: $color-gray-1;
+    }
+  }
+
+  &-primary {
+    color: white;
+    background-color: $color-primary;
+    box-shadow: 0 4px 14px rgba($color-primary, 0.4);
+
+    &:hover {
+      background-color: tint($color-primary, 8%);
+      box-shadow: 0 6px 20px rgba($color-primary, 0.2);
+    }
+  }
+
+  &-darken {
+    color: white;
+    background-color: black;
+    border: solid 1px black;
+
+    &:hover {
+      color: black;
+      background-color: white;
     }
   }
 }

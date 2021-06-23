@@ -1,8 +1,4 @@
-export interface StorageProps {
-  readonly get: (key: string) => string | null | void;
-  readonly set: (key: string, input: any) => void;
-  readonly remove: (key: string) => void;
-}
+import { StorageProps } from '@/types/utils'
 
 /**
  * Local Storege Manager.

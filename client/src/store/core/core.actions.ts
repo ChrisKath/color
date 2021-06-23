@@ -1,17 +1,29 @@
-import { CoreLoaderState, CoreActionInterface, CoreActionTypes } from './core.interface'
+import { CoreActionInterface, CoreActionTypes, Loader, Dialog } from './core.interface'
 
 export default {
-  setLanguage (payload: string): CoreActionInterface {
+  setLanguage(payload: string): CoreActionInterface {
     return {
       type: CoreActionTypes.SET_LANG,
-      payload: payload
+      payload
     }
   },
 
-  setLoader (status: boolean = true, text: string = 'rendering...'): CoreActionInterface {
+  setLoader(payload: Loader): CoreActionInterface {
     return {
       type: CoreActionTypes.SET_LOADER,
-      payload: { status, text }
+      payload
+    }
+  },
+
+  setDialog(payload: Dialog): CoreActionInterface {
+    return {
+      type: CoreActionTypes.SET_DIALOG,
+      payload: {
+        ...payload,
+        type: payload?.type || 'alert',
+        confirmLabel: payload?.confirmLabel || 'OK',
+        cancelLabel: payload?.cancelLabel || 'cancel'
+      }
     }
   }
 }

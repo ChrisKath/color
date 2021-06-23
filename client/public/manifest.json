@@ -1,6 +1,6 @@
 {
   "short_name": "P. Color",
-  "name": "Color, Private Webapp (Creation)",
+  "name": "Color, Private Web App (Creation)",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,6 +10,6 @@
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#08d4ab",
-  "background_color": "#0b0d0e"
+  "theme_color": "#0070F3",
+  "background_color": "#111111"
 }

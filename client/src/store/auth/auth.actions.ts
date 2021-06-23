@@ -1,21 +1,14 @@
-import { AuthActionInterface, AuthActionTypes, Token, User } from './auth.interface'
+import { AuthActionInterface, AuthActionTypes } from './auth.interface'
 
 export default {
-  setAuthenticated (payload: boolean): AuthActionInterface {
+  setAuthenticated(payload: string): AuthActionInterface {
     return {
       type: AuthActionTypes.SET_AUTH,
       payload
     }
   },
 
-  setToken (payload: Token): AuthActionInterface {
-    return {
-      type: AuthActionTypes.SET_TOKEN,
-      payload
-    }
-  },
-
-  setUserData (payload: User): AuthActionInterface {
+  setUserProfile(payload: any): AuthActionInterface {
     return {
       type: AuthActionTypes.SET_USER,
       payload

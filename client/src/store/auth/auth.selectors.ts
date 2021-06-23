@@ -1,15 +1,15 @@
-import { ReduxStateType } from '../index'
+import { StoreTypes } from '@/store'
 
 export default {
-  getAuthenticated (state: ReduxStateType) {
-    return state.$auth.isAuthenticated
+  getAuthenticated({ auth }: StoreTypes) {
+    return auth.isAuthenticated
   },
 
-  getToken (state: ReduxStateType) {
-    return state.$auth.token
+  getPassport({ auth }: StoreTypes) {
+    return auth.passport
   },
 
-  getUserData (state: ReduxStateType) {
-    return state.$auth.userData
+  getUser({ auth }: StoreTypes) {
+    return auth.user
   }
 }

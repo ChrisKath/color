@@ -9,29 +9,53 @@
 }
 
 // Small devices
-@mixin xs {
+@mixin screen-xs {
   @media (max-width: #{$screen-xs}) {
     @content;
   }
 }
 
+@mixin screen-xs-min {
+  @media (min-width: #{$screen-xs + 1}) {
+    @content;
+  }
+}
+
 // Medium devices
-@mixin sm {
+@mixin screen-sm {
   @media (max-width: #{$screen-sm}) {
     @content;
   }
 }
 
+@mixin screen-sm-min {
+  @media (min-width: #{$screen-sm + 1}) {
+    @content;
+  }
+}
+
 // Large devices
-@mixin md {
+@mixin screen-md {
   @media (max-width: #{$screen-md}) {
     @content;
   }
 }
 
+@mixin screen-md-min {
+  @media (min-width: #{$screen-md + 1}) {
+    @content;
+  }
+}
+
 // Extra large devices
-@mixin lg {
+@mixin screen-lg {
   @media (max-width: #{$screen-lg}) {
+    @content;
+  }
+}
+
+@mixin screen-lg-min {
+  @media (min-width: #{$screen-lg + 1}) {
     @content;
   }
 }
@@ -41,4 +65,29 @@
   @media (max-width: $screen+'px') {
     @content;
   }
+}
+
+@mixin attr($attr, $values) {
+  @if type-of($values) == 'list' {
+    @each $value in $values {
+
+      &[#{$attr}=#{$value}] {
+        @content;
+      }
+      
+    }
+  } @else {
+    &[#{$attr}=#{$values}] {
+      @content;
+    }
+  }
+}
+
+@mixin text-overflow($height, $max-line: 2) {
+  display: -webkit-box;
+  height: $height;
+  -webkit-line-clamp: $max-line;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

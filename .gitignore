@@ -3,6 +3,7 @@ dist
 build
 node_modules
 docs/db
+docs/s3
 
 # local env files
 .env
